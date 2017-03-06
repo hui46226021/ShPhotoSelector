@@ -70,7 +70,7 @@ public class BitmapUtil {
 			}
 			
 			for (int i = 0; i < data.size(); i++) {
-				for (int j = 0; j < allimglist.size(); j++) {
+				for (int j =  allimglist.size()-1; j >= 0; j--) {
 					if (data.get(i).imageDire.equals(getfileinfo(allimglist.get(j)))) {
 						data.get(i).photoContent.add(allimglist.get(j));
 					}
