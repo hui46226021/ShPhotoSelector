@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#000000"
+     >
+
+    <GridView
+
+        android:id="@+id/gridView1"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/relativeLayout1"
+        android:listSelector="@color/bule_overlay"
+        android:numColumns="3" >
+    </GridView>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:alpha="0.8"
+        android:background="@android:color/black" >
+
+        <TextView
+            android:id="@+id/other_album"
+            android:layout_marginLeft="15dp"
+            android:drawablePadding="6dp"
+            android:drawableRight="@drawable/photo_yxj"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="14sp"
+            android:text="其他相册"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <ImageButton
+            android:src="@drawable/photo_go_back"
+            android:scaleType="centerInside"
+            android:id="@+id/button1"
+            android:layout_margin="2dp"
+            android:layout_width="20dp"
+            android:layout_height="46dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:textColor="@android:color/black"
+            android:background="@null"
+            android:onClick="tobreak"
+             />
+    <TextView
+        android:gravity="center"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/button1"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+        <Button
+            android:id="@+id/finishButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@null"
+            android:textColor="#ffffff"
+            android:layout_margin="2dp"
+            android:onClick="sendfiles"
+            android:text="完成" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

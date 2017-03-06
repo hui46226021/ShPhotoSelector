@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sh.zsh.code.shphotoselectorlibrary.SquareLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_margin="1dp"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerInParent="true"
+        android:src="@drawable/imgbg"
+          android:scaleType="centerCrop"
+         />
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/imageView1"
+        android:layout_alignTop="@+id/imageView1" 
+        android:checked="false"
+        android:focusable="false"
+        android:clickable="false"
+        />
+
+</com.sh.zsh.code.shphotoselectorlibrary.SquareLayout>
