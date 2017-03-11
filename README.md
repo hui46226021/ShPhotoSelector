@@ -15,5 +15,5 @@ or Gradle:
 ~~~gradle
 compile 'com.sh.zsh.code:shphotoselectorlibrary:2.0.9'
 ~~~
-
+项目依赖
 ![](1.gif)
