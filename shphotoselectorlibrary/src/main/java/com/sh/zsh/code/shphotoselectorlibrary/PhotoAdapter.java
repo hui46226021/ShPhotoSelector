@@ -1,5 +1,6 @@
 package com.sh.zsh.code.shphotoselectorlibrary;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,23 +16,20 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+
 public class PhotoAdapter extends BaseAdapter {
 
 	Context context;
 	List<String> data;
-	public Bitmap bitmaps[];
-	BitmapUtil bitmapUtil;
+
 	OnItemClickClass onItemClickClass;
-	private int index=-1;
-	
-	List<View> holderlist;
+
 	public PhotoAdapter(Context context, List<String> data, OnItemClickClass onItemClickClass) {
 		this.context=context;
 		this.data=data;
 		this.onItemClickClass=onItemClickClass;
-		bitmaps=new Bitmap[data.size()];
-		bitmapUtil =new BitmapUtil(context);
-		holderlist=new ArrayList<View>();
+
 	}
 	
 	@Override
@@ -49,31 +47,29 @@ public class PhotoAdapter extends BaseAdapter {
 		return arg0;
 	}
 	
-	public void setIndex(int index) {
-		this.index = index;
-	}
+
 
 	@Override
 	public View getView(int arg0, View arg1, ViewGroup arg2) {
 		Holder holder;
-		if (arg0 != index && arg0 > index) {
-			index=arg0;
+		if (arg1==null) {
+
 			arg1=LayoutInflater.from(context).inflate(R.layout.imgsitem, null);
 			holder=new Holder();
 			holder.imageView=(ImageView) arg1.findViewById(R.id.imageView1);
 			holder.checkBox=(CheckBox) arg1.findViewById(R.id.checkBox1);
 			arg1.setTag(holder);
-			holderlist.add(arg1);
+
 		}else {
-			holder= (Holder)holderlist.get(arg0).getTag();
-			arg1=holderlist.get(arg0);
+
+			holder= (Holder) arg1.getTag();
 		}
-		if (bitmaps[arg0] == null) {
-			bitmapUtil.imgExcute(holder.imageView,new ImgClallBackLisner(arg0), data.get(arg0));
-		}
-		else {
-			holder.imageView.setImageBitmap(bitmaps[arg0]);
-		}
+
+		File file = new File(data.get(arg0));
+		Glide.with(context)
+				.load(file)
+				.into(holder.imageView);
+
 		arg1.setOnClickListener(new OnPhotoClick(arg0, holder.checkBox));
 		return arg1;
 	}
@@ -83,25 +79,6 @@ public class PhotoAdapter extends BaseAdapter {
 		CheckBox checkBox;
 	}
 
-	public class ImgClallBackLisner implements ImgCallBack{
-		int num;
-		public ImgClallBackLisner(int num) {
-			this.num=num;
-		}
-		
-		@Override
-		public void resultImgCall(ImageView imageView, Bitmap bitmap) {
-			bitmaps[num]=bitmap;
-			imageView.setImageBitmap(bitmap);
-		}
-	}
-
-	@Override
-	public void notifyDataSetChanged() {
-		bitmaps=new Bitmap[data.size()];
-		super.notifyDataSetChanged();
-
-	}
 
 	public interface OnItemClickClass{
 		public void OnItemClick(View v, int Position, CheckBox checkBox);

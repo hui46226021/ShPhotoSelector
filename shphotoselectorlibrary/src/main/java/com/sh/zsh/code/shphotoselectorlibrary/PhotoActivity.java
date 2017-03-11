@@ -84,6 +84,7 @@ public class PhotoActivity extends AppCompatActivity implements AlbumDialog.Sele
 
 	@Override
 	public void selectedCall(DireInfo direInfo) {
+		this.direInfo=direInfo;
 		filecountents.clear();
 		filecountents.addAll(direInfo.photoContent);
 		photoAdapter =new PhotoAdapter(this,filecountents,onItemClickClass);
